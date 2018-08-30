@@ -23,18 +23,10 @@ export class CurrentWeatherComponent implements OnInit {
   }
   */
   constructor(private weatherService: WeatherService) { 
-    this.current = {
-      city: 'Milpitas',
-      country: 'US',
-      date: new Date(),
-      image: '',
-      temperature: 72,
-      description: 'Prema'
-    };
   }
 
   ngOnInit() {
-    this.weatherService.getCurrentWeather('Bethesda','US');
+    this.weatherService.getCurrentWeather('Bethesda','US').subscribe((data) => this.current = data )
   }
 
 }
